@@ -106,9 +106,12 @@ class CPU:
                 self.pc = -1
 
             case _:
-                raise(ValueError("Instruccion no admitida."))
+                raise(ValueError(f"Instruccion ({inst}) no admitida."))
 
     def load_prog(self, filename:str):
+        """
+        Load a program onto progmem, for it to be executed
+        """
         with open(filename,"r") as f:
             raw = f.read()
 
@@ -120,6 +123,9 @@ class CPU:
         self.progmem = lined
 
     def do_cycle(self):
+        """
+        Does one CPU cycle: load, increment, execute
+        """
         self.ir = self.progmem[self.pc].split(" ")
         self.pc += 1
         if len(self.ir) == 1:
@@ -128,7 +134,12 @@ class CPU:
             self.exec(self.ir[0], self.ir[1])
 
     def print_state(self,mem:list[str] = []):
-        state = f"""Registros:
+        """
+        Prints the state of the CPU. Add a list of memory addresses for them to be displayed.
+        For example, to display memory addresses 120 and 130, print_state(["120","130"])
+        """
+        state = \
+        f"""Registros:
         A:{self.reg['A']}
         B:{self.reg['B']}
         C:{self.reg['C']}

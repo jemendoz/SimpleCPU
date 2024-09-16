@@ -1,0 +1,24 @@
+# Instruction set
+
+- `LOADA mem`: Load onto register A the content of memory address _mem_
+- `LOADB mem`: Load onto register B the content of memory address _mem_
+- `LOADC mem`: Load onto register C the content of memory address _mem_
+- `CONA con`: Load onto register A the constant value _con_
+- `CONB con`: Load onto register B the constant value _con_
+- `CONC con`: Load onto register C the constant value _con_
+- `SAVEB mem`: Save the content of register A on memory address _mem_
+- `SAVEC mem`: Save the content of register B on memory address _mem_
+- `SAVEC mem`: Save the content of register C on memory address _mem_
+- `ADD`: Add registers A and B, save result on C
+- `SUB`: Substract registers A and B, save result on C
+- `MUL`: Multiply registers A and B, save result on C
+- `DIV`: Divide registers A and B, save result on C
+- `COM`: Compare registers A and B, save result on TEST
+- `JUMP addr`: Jump to address _addr_
+- `JEQ addr`: Jump to address _addr_ if the value of TEST is ==
+- `JNEQ addr`: Jump to address _addr_ if the value of TEST is !=
+- `JG addr`: Jump to address _addr_ if the value of TEST is >
+- `JGE addr`: Jump to address _addr_ if the value of TEST is >=
+- `JL addr`: Jump to address _addr_ if the value of TEST is <
+- `JLE addr`: Jump to address _addr_ if the value of TEST is <=
+- `STOP`: Stop execution
