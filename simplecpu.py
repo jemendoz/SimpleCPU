@@ -13,7 +13,7 @@ class CPU:
         self.mem:dict[str:str] = dict()
         self.progmem:list[str] = list()
 
-    def exec(self, inst:str, param:str|None = None):
+    def exec(self, inst:str, param:str|None = None) -> None:
         """
         exec() takes an instruction, and optionally a parameter, if the instructions needs, and executes
         the instruction. Full list of instructions on docs/instructions.md
@@ -108,7 +108,7 @@ class CPU:
             case _:
                 raise(ValueError(f"Instruccion ({inst}) no admitida."))
 
-    def load_prog(self, filename:str):
+    def load_prog(self, filename:str) -> None:
         """
         Load a program onto progmem, for it to be executed
         """
@@ -117,12 +117,19 @@ class CPU:
 
         lined = raw.split("\n")
 
+        # Ignore comments
+        for i,line in enumerate(lined):
+            sep = line.split("//")
+            if len(sep) > 1:
+                lined[i] = sep[0].lstrip().rstrip()
+
+        # Delete blank spaces (lines)
         while "" in lined:
             lined.remove("")
 
         self.progmem = lined
 
-    def do_cycle(self):
+    def do_cycle(self) -> None:
         """
         Does one CPU cycle: load, increment, execute
         """
@@ -133,7 +140,7 @@ class CPU:
         else:
             self.exec(self.ir[0], self.ir[1])
 
-    def print_state(self,mem:list[str] = []):
+    def print_state(self,mem:list[str] = []) -> None:
         """
         Prints the state of the CPU. Add a list of memory addresses for them to be displayed.
         For example, to display memory addresses 120 and 130, print_state(["120","130"])
