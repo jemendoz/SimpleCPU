@@ -12,7 +12,8 @@
 - `ADD`: Suma los registros A y B, guarda el resultado en C
 - `SUB`: Resta los registros A y B, guarda el resultado en C
 - `MUL`: Multiplica los registros A y B, guarda el resultado en C
-- `DIV`: Divide los registros A y B, guarda el resultado en C
+- `DIV`: Divide (division entera) los registros A y B, guarda el resultado en C
+- `MOD` : Hace el modulo del registro A sobre el B, guarda el resultado en C
 - `COM`: Suma los registros A y B, guarda el resultado en TEST
 - `JUMP addr`: Salta a la direccion _addr_
 - `JEQ addr`: Salta a la direccion _addr_ si TEST es =

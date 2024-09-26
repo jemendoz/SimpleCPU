@@ -65,7 +65,10 @@ class CPU:
                 self.reg["C"] = str(int(self.reg["A"]) * int(self.reg["B"]))
 
             case "DIV":
-                self.reg["C"] = str(int(self.reg["A"]) / int(self.reg["B"]))
+                self.reg["C"] = str(int(self.reg["A"]) // int(self.reg["B"]))
+
+            case "MOD":
+                self.reg["C"] = str(int(self.reg["A"]) % int(self.reg["B"]))
 
             case "COM":
                 if int(self.reg["A"]) < int(self.reg["B"]):
