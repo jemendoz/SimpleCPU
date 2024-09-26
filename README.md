@@ -1,2 +1,21 @@
 # SimpleCPU
-Simple CPU assembly simulator. Uses a 4 register CPU with memory, and an arbitrary set of commands.
+Programa destinado a simular una sencilla version de una CPU. Tiene su propio set de instrucciones, detallado en `docs/instructions`.
+
+## Requisitos
+- Python 3.x
+
+## Uso
+Para iniciar el programa, usa `python3 main.py`. Si no funciona, prueba con `python main.py`. Puede depender de tu sistema operativo.
+
+Una vez dentro del programa, se te pedira cargar un programa, que debes poner en la carpeta `programs`.  
+Si el programa existe, se carga, y te pide que direcciones de memoria quieres monitorear. Por defecto, solo ves los registros de la CPU. Para seleccionar unas direcciones, puedes escribirlas separadas con comas. Por ejemplo, en el programa que viene por defecto, `fact.txt`, se hace uso de las direcciones 128, y 129, por lo que pondrias: `128,129`.
+
+Para avanzar un solo ciclo de reloj, pulsa `Enter`.  
+Para avanzar hasta el final del programa, escribe `S` y pulsa `Enter`.  
+Para salir de la ejecucion, y cerrar el programa, escribe `X` y pulsa `Enter`
+
+## Problemas y sugerencias
+Puedes reportar problemas o fallos en el programa en la seccion de problemas de GitHub, y aportar tu propio codigo para contribuir.
+
+## Licencia
+Este repositorio tiene licencia MIT, por Jesus Mendoza. Para mas informacion, leer `LICENSE`.

@@ -1,5 +1,6 @@
 from simplecpu import CPU
 from os import name as osname, system
+from os.path import exists
 
 def clear():
     if osname == "nt":
@@ -11,20 +12,31 @@ def main() -> None:
     wait:bool = True
 
     cpu = CPU()
-    cpu.load_prog("programs/fact.txt")
+
+    print("Que programa quieres ejecutar? (ubicado en /programs)")
+    progname = input("Programa: ")
+
+    if not exists(f"programs/{progname}"):
+        print("El programa indicado no existe...")
+        return
+
+    cpu.load_prog(f"programs/{progname}")
+
+    print("Escoge las direcciones de memoria a visualizar (separadas por comas)")
+    memaddr = [ x.lstrip().rstrip() for x in input("Direcciones: ").split(",") ]
     
     while cpu.pc != -1:
         clear()
-        cpu.print_state(["128","129"])
+        cpu.print_state(memaddr)
         cpu.do_cycle()
         if wait:
-            inp = input("[Enter] to step, [S] to skip, [X] to exit")
+            inp = input("[Enter] para un ciclo, [S] para finalizar, [X] para salir: ")
             if inp.lower() == "s":
                 wait = False
             if inp.lower() == "x":
                 break
 
-    print("PROGRAM END")
+    print("FIN DEL PROGRAMA")
     
 
 if __name__=="__main__":
