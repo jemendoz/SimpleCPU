@@ -1,24 +1,24 @@
-# Instruction set
+# Conjunto de instrucciones
 
-- `LOADA mem`: Load onto register A the content of memory address _mem_
-- `LOADB mem`: Load onto register B the content of memory address _mem_
-- `LOADC mem`: Load onto register C the content of memory address _mem_
-- `CONA con`: Load onto register A the constant value _con_
-- `CONB con`: Load onto register B the constant value _con_
-- `CONC con`: Load onto register C the constant value _con_
-- `SAVEB mem`: Save the content of register A on memory address _mem_
-- `SAVEC mem`: Save the content of register B on memory address _mem_
-- `SAVEC mem`: Save the content of register C on memory address _mem_
-- `ADD`: Add registers A and B, save result on C
-- `SUB`: Substract registers A and B, save result on C
-- `MUL`: Multiply registers A and B, save result on C
-- `DIV`: Divide registers A and B, save result on C
-- `COM`: Compare registers A and B, save result on TEST
-- `JUMP addr`: Jump to address _addr_
-- `JEQ addr`: Jump to address _addr_ if the value of TEST is ==
-- `JNEQ addr`: Jump to address _addr_ if the value of TEST is !=
-- `JG addr`: Jump to address _addr_ if the value of TEST is >
-- `JGE addr`: Jump to address _addr_ if the value of TEST is >=
-- `JL addr`: Jump to address _addr_ if the value of TEST is <
-- `JLE addr`: Jump to address _addr_ if the value of TEST is <=
-- `STOP`: Stop execution
+- `LOADA mem`: Carga en el registro A el contenido de la direccion de memoria _mem_
+- `LOADB mem`: Carga en el registro B el contenido de la direccion de memoria _mem_
+- `LOADC mem`: Carga en el registro C el contenido de la direccion de memoria _mem_
+- `CONA con`: Carga en el registro A la constante _con_
+- `CONB con`: Carga en el registro B la constante _con_
+- `CONC con`: Carga en el registro C la constante _con_
+- `SAVEB mem`: Guarda el contenido del registro A en la direccion de memoria _mem_
+- `SAVEC mem`: Guarda el contenido del registro B en la direccion de memoria _mem_
+- `SAVEC mem`: Guarda el contenido del registro C en la direccion de memoria _mem_
+- `ADD`: Suma los registros A y B, guarda el resultado en C
+- `SUB`: Resta los registros A y B, guarda el resultado en C
+- `MUL`: Multiplica los registros A y B, guarda el resultado en C
+- `DIV`: Divide los registros A y B, guarda el resultado en C
+- `COM`: Suma los registros A y B, guarda el resultado en TEST
+- `JUMP addr`: Salta a la direccion _addr_
+- `JEQ addr`: Salta a la direccion _addr_ si TEST es =
+- `JNEQ addr`: Salta a la direccion _addr_ si TEST no es =
+- `JG addr`: Salta a la direccion _addr_ si TEST es >
+- `JGE addr`: Salta a la direccion _addr_ si TEST es > o =
+- `JL addr`: Salta a la direccion _addr_ si TEST es <
+- `JLE addr`: Salta a la direccion _addr_ si TEST es < o =
+- `STOP`: Deten la ejecucion
