@@ -3,6 +3,9 @@ class CPU:
         # CPU registers: A, B, C, TEST
         self.reg:dict[str:str] = {"A":None,"B":None,"C":None,"TEST":None}
 
+        # CPU state
+        self.state = "idle"
+
         # Instruction register
         self.ir:list[str] = []
 
@@ -106,7 +109,7 @@ class CPU:
                     self.pc = int(param)
 
             case "STOP":
-                self.pc = -1
+                self.state = "halt"
 
             case _:
                 raise(ValueError(f"Instruccion ({inst}) no admitida."))
@@ -131,6 +134,7 @@ class CPU:
             lined.remove("")
 
         self.progmem = lined
+        self.state = "running"
 
     def do_cycle(self) -> None:
         """

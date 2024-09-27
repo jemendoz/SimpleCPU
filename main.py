@@ -25,10 +25,14 @@ def main() -> None:
     print("Escoge las direcciones de memoria a visualizar (separadas por comas)")
     memaddr = [ x.lstrip().rstrip() for x in input("Direcciones: ").split(",") ]
     
-    while cpu.pc != -1:
+    while True:
         clear()
+
         cpu.print_state(memaddr)
+        if cpu.state == "halt":
+            break
         cpu.do_cycle()
+
         if wait:
             inp = input("[Enter] para un ciclo, [S] para finalizar, [X] para salir: ")
             if inp.lower() == "s":
