@@ -1,25 +1,25 @@
 # Conjunto de instrucciones
 
-- `LOADA mem`: Carga en el registro A el contenido de la direccion de memoria _mem_
-- `LOADB mem`: Carga en el registro B el contenido de la direccion de memoria _mem_
-- `LOADC mem`: Carga en el registro C el contenido de la direccion de memoria _mem_
+- `LOADA mem`: Carga en el registro A el contenido de la dirección de memoria _mem_
+- `LOADB mem`: Carga en el registro B el contenido de la dirección de memoria _mem_
+- `LOADC mem`: Carga en el registro C el contenido de la dirección de memoria _mem_
 - `CONA con`: Carga en el registro A la constante _con_
 - `CONB con`: Carga en el registro B la constante _con_
 - `CONC con`: Carga en el registro C la constante _con_
-- `SAVEB mem`: Guarda el contenido del registro A en la direccion de memoria _mem_
-- `SAVEC mem`: Guarda el contenido del registro B en la direccion de memoria _mem_
-- `SAVEC mem`: Guarda el contenido del registro C en la direccion de memoria _mem_
+- `SAVEB mem`: Guarda el contenido del registro A en la dirección de memoria _mem_
+- `SAVEC mem`: Guarda el contenido del registro B en la dirección de memoria _mem_
+- `SAVEC mem`: Guarda el contenido del registro C en la dirección de memoria _mem_
 - `ADD`: Suma los registros A y B, guarda el resultado en C
 - `SUB`: Resta los registros A y B, guarda el resultado en C
 - `MUL`: Multiplica los registros A y B, guarda el resultado en C
-- `DIV`: Divide (division entera) los registros A y B, guarda el resultado en C
-- `MOD` : Hace el modulo del registro A sobre el B, guarda el resultado en C
-- `COM`: Suma los registros A y B, guarda el resultado en TEST
-- `JUMP addr`: Salta a la direccion _addr_
-- `JEQ addr`: Salta a la direccion _addr_ si TEST es =
-- `JNEQ addr`: Salta a la direccion _addr_ si TEST no es =
-- `JG addr`: Salta a la direccion _addr_ si TEST es >
-- `JGE addr`: Salta a la direccion _addr_ si TEST es > o =
-- `JL addr`: Salta a la direccion _addr_ si TEST es <
-- `JLE addr`: Salta a la direccion _addr_ si TEST es < o =
-- `STOP`: Deten la ejecucion
+- `DIV`: Divide (división entera) los registros A y B, guarda el resultado en C
+- `MOD` : Hace el módulo del registro A sobre el B, guarda el resultado en C
+- `COM`: Compara los registros A y B, guarda el resultado en TEST
+- `JUMP addr`: Salta a la dirección _addr_
+- `JEQ addr`: Salta a la dirección _addr_ si TEST es =
+- `JNEQ addr`: Salta a la dirección _addr_ si TEST no es =
+- `JG addr`: Salta a la dirección _addr_ si TEST es >
+- `JGE addr`: Salta a la dirección _addr_ si TEST es > o =
+- `JL addr`: Salta a la dirección _addr_ si TEST es <
+- `JLE addr`: Salta a la dirección _addr_ si TEST es < o =
+- `STOP`: Detiene la ejecución
