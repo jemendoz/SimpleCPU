@@ -23,7 +23,10 @@ def main() -> None:
     cpu.load_prog(f"programs/{progname}")
 
     print("Escoge las direcciones de memoria a visualizar (separadas por comas)")
-    memaddr = [ x.lstrip().rstrip() for x in input("Direcciones: ").split(",") ]
+    try:
+        memaddr = [ int(x.lstrip().rstrip()) for x in input("Direcciones: ").split(",") ]
+    except ValueError:
+        raise ValueError("Las direcciones deben ser numericas")
     
     while True:
         clear()

@@ -1,7 +1,7 @@
 class CPU:
     def __init__(self) -> None:
         # CPU registers: A, B, C, TEST
-        self.reg:dict[str:str] = {"A":None,"B":None,"C":None,"TEST":None}
+        self.reg:dict[str:int] = {"A":0,"B":0,"C":0,"TEST":"="}
 
         # CPU state
         self.state = "idle"
@@ -12,11 +12,11 @@ class CPU:
         # Program counter
         self.pc:int = 0
 
-        #
-        self.mem:dict[str:str] = dict()
+        # Memory and program memory
+        self.mem:dict[int:int] = dict()
         self.progmem:list[str] = list()
 
-    def exec(self, inst:str, param:str|None = None) -> None:
+    def exec(self, inst:str, param:int|None = None) -> None:
         """
         exec() takes an instruction, and optionally a parameter, if the instructions needs, and executes
         the instruction. Full list of instructions on docs/instructions.md
@@ -59,24 +59,24 @@ class CPU:
                 self.mem[param] = self.reg["C"]
 
             case "ADD":
-                self.reg["C"] = str(int(self.reg["A"]) + int(self.reg["B"]))
+                    self.reg["C"] = self.reg["A"] + self.reg["B"]
 
             case "SUB":
-                self.reg["C"] = str(int(self.reg["A"]) - int(self.reg["B"]))
+                self.reg["C"] = self.reg["A"] - self.reg["B"]
 
             case "MUL":
-                self.reg["C"] = str(int(self.reg["A"]) * int(self.reg["B"]))
+                self.reg["C"] = self.reg["A"] * self.reg["B"]
 
             case "DIV":
-                self.reg["C"] = str(int(self.reg["A"]) // int(self.reg["B"]))
+                self.reg["C"] = self.reg["A"] // self.reg["B"]
 
             case "MOD":
-                self.reg["C"] = str(int(self.reg["A"]) % int(self.reg["B"]))
+                self.reg["C"] = self.reg["A"] % self.reg["B"]
 
             case "COM":
-                if int(self.reg["A"]) < int(self.reg["B"]):
+                if self.reg["A"] < self.reg["B"]:
                     self.reg["TEST"] = "<"
-                elif int(self.reg["A"]) > int(self.reg["B"]):
+                elif self.reg["A"] > self.reg["B"]:
                     self.reg["TEST"] = ">"
                 else:
                     self.reg["TEST"] = "="
@@ -140,18 +140,33 @@ class CPU:
         """
         Does one CPU cycle: load, increment, execute
         """
+
+        # Load
         self.ir = self.progmem[self.pc].split(" ")
+
+        # Increment
         self.pc += 1
+
+        # Execute
         if len(self.ir) == 1:
             self.exec(self.ir[0])
         else:
-            self.exec(self.ir[0], self.ir[1])
+            try:
+                self.ir[1]:int = int(self.ir[1])
+                self.exec(self.ir[0], self.ir[1])
+            except ValueError:
+                raise ValueError("Los parametros deben ser numericos")
 
-    def print_state(self,mem:list[str] = []) -> None:
+
+    def print_state(self,mem:list[int]|None = None) -> None:
         """
         Prints the state of the CPU. Add a list of memory addresses for them to be displayed.
         For example, to display memory addresses 120 and 130, print_state(["120","130"])
         """
+
+        if mem is None:
+            mem = []
+
         state = \
         f"""Registros:
         A:{self.reg['A']}
